@@ -1,5 +1,4 @@
 import {
-  AcademicCapIcon,
   ArrowDownTrayIcon,
   BuildingOffice2Icon,
   CalendarIcon,
@@ -20,7 +19,6 @@ import {
   ContactType,
   Hero,
   HomepageMeta,
-  SkillGroup,
   Social,
   TestimonialSection,
   TimelineItem,
@@ -62,7 +60,7 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Utku broadly interested in  <strong className="text-stone-100">how social and contextual factors influence 
+        I'm Utku, broadly interested in  <strong className="text-stone-100">how social and contextual factors influence 
         students’ motivation</strong>, 
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">

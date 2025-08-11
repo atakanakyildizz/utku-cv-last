@@ -110,10 +110,13 @@ export interface TestimonialSection {
 }
 
 export interface Testimonial {
-  image?: string;
   name: string;
-  text: string;
+  text?: string;  
+  title?: string;
+  location?: string;
+  contact?: string;
 }
+
 
 /**
  * Contact section

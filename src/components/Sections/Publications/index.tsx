@@ -7,6 +7,7 @@ import {
   conferencesNationalInternational,
   conferencesLocalRegional,
 } from '../../../data/publications';
+import { Pub } from '../../../data/publications';
 
 const PubItem: FC<{ p: Pub }> = ({ p }) => (
   <li className="leading-relaxed">
