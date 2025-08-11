@@ -1,3 +1,4 @@
+// src/components/Icon/Icon.tsx
 import { FC, memo } from 'react';
 
 export interface IconProps extends React.SVGProps<SVGSVGElement> {
@@ -13,7 +14,7 @@ const Icon: FC<IconProps> = memo(
       width={width}
       fill={fill}
       xmlns="http://www.w3.org/2000/svg"
-      {...props}   // height, transform, stroke, etc. buradan gelebilir
+      {...props} // height, transform, stroke, vb. buradan gelebilir
     >
       {children}
     </svg>
