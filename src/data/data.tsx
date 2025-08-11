@@ -8,23 +8,10 @@ import {
   SparklesIcon,
 } from '@heroicons/react/24/outline';
 
-import GithubIcon from '../components/Icon/GithubIcon';
-import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
-import TwitterIcon from '../components/Icon/TwitterIcon';
+import XIcon from '../components/Icon/XIcon';
 import heroImage from '../images/header-background.webp';
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
-import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
-import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
-import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
+
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
@@ -33,12 +20,12 @@ import {
   ContactType,
   Hero,
   HomepageMeta,
-  PortfolioItem,
   SkillGroup,
   Social,
   TestimonialSection,
   TimelineItem,
 } from './dataDef';
+import GoogleScholarIcon from '../components/Icon/GoogleScholarIcon';
 
 /**
  * Page meta data
@@ -55,9 +42,11 @@ export const SectionId = {
   Hero: 'hero',
   About: 'about',
   Contact: 'contact',
-  Portfolio: 'portfolio',
+  Publications: 'publications',
   Resume: 'resume',
   Skills: 'skills',
+  Awards: 'awards',
+  Affiliations: 'affiliations', 
   Stats: 'stats',
   Testimonials: 'testimonials',
 } as const;
@@ -69,24 +58,23 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Tim Baker.`,
+  name: `I'm Utku Caybas`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
-        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-        registrar and site builder.
+        I'm a Utku broadly interested in  <strong className="text-stone-100">how social and contextual factors influence 
+        students’ motivation</strong>, 
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
-        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Vancouver Island</strong>.
+        Specifically, I work to understand <strong className="text-stone-100">how different levels 
+      of peer relations, such as peer interactions, friendships, and peer groups, play 
+      a role in students’ motivation.</strong>
       </p>
     </>
   ),
   actions: [
     {
-      href: '/assets/resume.pdf',
+      href: 'assets/resume.pdf',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
@@ -102,205 +90,135 @@ export const heroData: Hero = {
 /**
  * About section
  */
+
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `Hi, I am broadly interested in how social and contextual factors influence students’ motivation. Specifically, I work to understand how different levels of peer relations, such as peer interactions, friendships, and peer groups, play a role in students’ motivation.`,
   aboutItems: [
-    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
+    {label: 'Location', text: 'Lansing, MI', Icon: MapIcon},
     {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
+    {label: 'Nationality', text: 'Turkish', Icon: FlagIcon},
     {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+    {label: 'Employment', text: 'Michigan University', Icon: BuildingOffice2Icon},
   ],
 };
 
 /**
  * Skills section
  */
-export const skills: SkillGroup[] = [
-  {
-    name: 'Spoken languages',
-    skills: [
-      {
-        name: 'English',
-        level: 10,
-      },
-      {
-        name: 'French',
-        level: 4,
-      },
-      {
-        name: 'Spanish',
-        level: 3,
-      },
-    ],
-  },
-  {
-    name: 'Frontend development',
-    skills: [
-      {
-        name: 'React',
-        level: 9,
-      },
-      {
-        name: 'Typescript',
-        level: 7,
-      },
-      {
-        name: 'GraphQL',
-        level: 6,
-      },
-    ],
-  },
-  {
-    name: 'Backend development',
-    skills: [
-      {
-        name: 'Node.js',
-        level: 8,
-      },
-      {
-        name: 'Rust',
-        level: 5,
-      },
-      {
-        name: 'Golang',
-        level: 4,
-      },
-    ],
-  },
-  {
-    name: 'Mobile development',
-    skills: [
-      {
-        name: 'React Native',
-        level: 9,
-      },
-      {
-        name: 'Flutter',
-        level: 4,
-      },
-      {
-        name: 'Swift',
-        level: 3,
-      },
-    ],
-  },
+export type SkillCourse = {
+  term: string;        // "Summer 2025" gibi
+  title: string;       // ders adı
+  instructor?: string; // "Instructor: ..." (opsiyonel)
+};
+
+export const skillCourses: SkillCourse[] = [
+  { term: 'Summer 2025', title: 'Longitudinal Structural Equation Modeling', instructor: 'Amy Nuttall' },
+  { term: 'Summer 2024', title: 'Network Analysis: Introduction', instructor: 'Sarah Shugars' },
+  { term: 'Spring 2024', title: 'Mixture Modeling and Latent Class Analysis', instructor: 'Dan Bauer & Doug Steinley' },
+  { term: 'Fall 2023',   title: 'Causal Inference', instructor: 'Doug Steinley' },
+  { term: 'Spring 2023', title: 'Hierarchical Linear Modeling', instructor: 'Kimberly Kelly' },
+  { term: 'Fall 2022',   title: 'Structural Equation Modeling', instructor: 'Amy Nuttall' },
+  { term: 'Spring 2020', title: 'Scale Development', instructor: 'Yesim Capa-Aydin' },
 ];
 
-/**
- * Portfolio section
- */
-export const portfolioItems: PortfolioItem[] = [
-  {
-    title: 'Project title 1',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage1,
-  },
-  {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage2,
-  },
-  {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage3,
-  },
-  {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage4,
-  },
-  {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage5,
-  },
-  {
-    title: 'Project title 6',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage6,
-  },
-  {
-    title: 'Project title 7',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage7,
-  },
-  {
-    title: 'Project title 8',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage8,
-  },
-  {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage9,
-  },
-  {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage10,
-  },
-  {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage11,
-  },
+export const softwareTools: string[] = [
+  'IBM SPSS Statistics', 'RStudio', 'Mplus', 'MAXQDA (Qualitative Analysis)',
 ];
+
+
 
 /**
  * Resume section -- TODO: Standardize resume contact format or offer MDX
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: '2014-2018',
+    location: 'Istanbul University',
+    title: 'B.A., Psychological Counseling and Guidance',
+    content: <p>(Summa Cum Laude Honors)</p>,
   },
   {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: '2015-2018',
+    location: 'Istanbul University',
+    title: 'B.A., Teaching Gifted Children',
+    content: <p>(Double Major)</p>,
+  },
+  {
+    date: '2018-2021',
+    location: 'Middle East Technical University',
+    title: 'M.S., Curriculum & Instruction',
+    content: <p>
+    Thesis: Academic Motivation of Middle School Students: Perceived Teacher Affective Support, Number of Interaction Partners, Prior Achievement and Homophily.
+    <br />
+    Advisor: Dr. Nur Aksus-Cakir · Co-Advisor: Dr. Yesim Capa-Aydin
+  </p>
+  },
+  {
+    date: '2015-2018',
+    location: 'University of Kentucky',
+    title: 'PhD., Educational Psychology',
+    content: <p>(Transferred to another program)</p>,
+  },
+  {
+    date: '2015-2018',
+    location: 'Michigan State University',
+    title: 'PhD., Educational Psychology',
+    content: <p>Advisor: Dr. Lisa Linnenbrink-Garcia</p>,
   },
 ];
-
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: 'Fall 2022 - Present',
+    location: 'Michigan State University',
+    title: 'Course Instructor',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        TE 150: Reflections on Learning (undergraduate educational psychology).<br />
+        Taught in-person, hybrid, and asynchronous online across Fall/Spring terms.<br />
+        Instructed 180+ undergraduate students to date.
       </p>
     ),
   },
   {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
+    date: '2020 – 2021',
+    location: 'Yonder Private Elementary and Middle School',
+    title: 'Instructional Designer',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        Designed course materials and learning activities aligned with school outcomes.<br />
+        Delivered professional development seminars for teachers.
+      </p>
+    ),
+  },
+  {
+    date: 'Feb 2018 – Jun 2018',
+    location: 'Besiktas Guidance and Research Center',
+    title: 'Psychological Assessment Intern',
+    content: (
+      <p>
+        Supported administration and scoring of standardized psychological tests.
+      </p>
+    ),
+  },
+  {
+    date: 'Oct 2017 – Jan 2018',
+    location: 'Findikli Vocational and Technical High School',
+    title: 'School Counseling Intern',
+    content: (
+      <p>
+        Organized school orientation for incoming students.<br />
+        Implemented a bullying prevention program.
+      </p>
+    ),
+  },
+  {
+    date: 'Jan 2017 – May 2017',
+    location: 'Sancaktar Hayrettin Middle School',
+    title: 'School Counseling Intern',
+    content: (
+      <p>
+        Implemented career guidance activities for middle school students.
       </p>
     ),
   },
@@ -313,22 +231,27 @@ export const testimonial: TestimonialSection = {
   imageSrc: testimonialImage,
   testimonials: [
     {
-      name: 'John Doe',
-      text: 'Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
+      name: 'Dr. Lisa Linnenbrink-Garcia',
+      title: 'Professor, Department of Counseling, Educational Psychology and Special Education',
+      location: 'Michigan State University',
+      contact: 'llgarcia@msu.edu',
     },
     {
-      name: 'Jane Doe',
-      text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
+      name: 'Dr. Ellen L. Usher',
+      title: 'Education Scientist, Office of Applied Scholarship and Education Science',
+      location: 'Mayo Clinic',
+      contact: 'usher.ellen@mayo.edu',
     },
     {
-      name: 'Someone else',
-      text: 'Add several of these, and keep them as fresh as possible, but be sure to focus on quality testimonials with strong highlights of your skills/work ethic.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
+      name: 'Dr. Jennifer Schmidt',
+      title: 'Professor, Department of Counseling, Educational Psychology and Special Education',
+      location: 'Michigan State University',
+      contact: 'jaschmid@msu.edu',
     },
   ],
 };
+
+
 
 /**
  * Contact section
@@ -340,23 +263,23 @@ export const contact: ContactSection = {
   items: [
     {
       type: ContactType.Email,
-      text: 'reachout@timbaker.me',
-      href: 'mailto:reachout@timbaker.me',
+      text: 'caybasiz@msu.edu',
+      href: 'mailto:caybasiz@msu.edu',
     },
     {
       type: ContactType.Location,
-      text: 'Victoria BC, Canada',
-      href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
+      text: 'Lansing MI, United States',
+      href: 'https://maps.app.goo.gl/3QeLUCHQKeUKuCyK6',
     },
     {
-      type: ContactType.Instagram,
-      text: '@tbakerx',
-      href: 'https://www.instagram.com/tbakerx/',
+      type: ContactType.LinkedIn,
+      text: 'utku-caybas',
+      href: 'https://www.linkedin.com/in/utku-caybas/',
     },
     {
-      type: ContactType.Github,
-      text: 'tbakerx',
-      href: 'https://github.com/tbakerx',
+      type: ContactType.Phone,
+      text: '+1 713 550 3289',
+      href: '+17135503289'
     },
   ],
 };
@@ -365,9 +288,7 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/tbakerx'},
-  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/timbakerx/'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/reactresume/'},
-  {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
+  {label: 'X', Icon: XIcon, href: 'https://x.com/utku_caybas'},
+  {label: 'Google Scholar', Icon: GoogleScholarIcon, href: 'https://scholar.google.com/citations?user=ViJXcW4AAAAJ&hl=en'},
 ];

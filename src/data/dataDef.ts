@@ -73,6 +73,14 @@ export interface SkillGroup {
   skills: Skill[];
 }
 
+export interface SkillResumeItem {
+  date?: string;
+  location?: string;
+  title: string; // grup adı
+  skills: Skill[]; // mevcut Skill tipinizi yeniden kullanıyoruz
+}
+
+
 /**
  * Portfolio section
  */
