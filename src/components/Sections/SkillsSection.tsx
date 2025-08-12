@@ -1,6 +1,7 @@
 // components/SkillsSection.tsx
-import { FC, memo } from 'react';
-import { skillCourses, softwareTools } from '../../data/data';
+import {FC, memo} from 'react';
+
+import {skillCourses, softwareTools} from '../../data/data';
 
 const SkillsSection: FC = memo(() => {
   return (
@@ -8,8 +9,8 @@ const SkillsSection: FC = memo(() => {
       {/* Kurslar */}
       {skillCourses.map((course, idx) => (
         <div
-          key={idx}
           className="flex flex-col pb-8 text-center last:pb-0 md:text-left"
+          key={idx}
         >
           <div className="flex flex-col pb-4">
             <h2 className="text-xl font-bold">{course.title}</h2>

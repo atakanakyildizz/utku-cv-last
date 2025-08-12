@@ -7,10 +7,10 @@ import {
   SparklesIcon,
 } from '@heroicons/react/24/outline';
 
+import GoogleScholarIcon from '../components/Icon/GoogleScholarIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import XIcon from '../components/Icon/XIcon';
 import heroImage from '../images/header-background.webp';
-
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
@@ -23,7 +23,6 @@ import {
   TestimonialSection,
   TimelineItem,
 } from './dataDef';
-import GoogleScholarIcon from '../components/Icon/GoogleScholarIcon';
 
 /**
  * Page meta data
@@ -111,13 +110,13 @@ export type SkillCourse = {
 };
 
 export const skillCourses: SkillCourse[] = [
-  { term: 'Summer 2025', title: 'Longitudinal Structural Equation Modeling', instructor: 'Amy Nuttall' },
-  { term: 'Summer 2024', title: 'Network Analysis: Introduction', instructor: 'Sarah Shugars' },
-  { term: 'Spring 2024', title: 'Mixture Modeling and Latent Class Analysis', instructor: 'Dan Bauer & Doug Steinley' },
-  { term: 'Fall 2023',   title: 'Causal Inference', instructor: 'Doug Steinley' },
-  { term: 'Spring 2023', title: 'Hierarchical Linear Modeling', instructor: 'Kimberly Kelly' },
-  { term: 'Fall 2022',   title: 'Structural Equation Modeling', instructor: 'Amy Nuttall' },
-  { term: 'Spring 2020', title: 'Scale Development', instructor: 'Yesim Capa-Aydin' },
+  {term: 'Summer 2025', title: 'Longitudinal Structural Equation Modeling', instructor: 'Amy Nuttall'},
+  {term: 'Summer 2024', title: 'Network Analysis: Introduction', instructor: 'Sarah Shugars'},
+  {term: 'Spring 2024', title: 'Mixture Modeling and Latent Class Analysis', instructor: 'Dan Bauer & Doug Steinley'},
+  {term: 'Fall 2023',   title: 'Causal Inference', instructor: 'Doug Steinley'},
+  {term: 'Spring 2023', title: 'Hierarchical Linear Modeling', instructor: 'Kimberly Kelly'},
+  {term: 'Fall 2022',   title: 'Structural Equation Modeling', instructor: 'Amy Nuttall'},
+  {term: 'Spring 2020', title: 'Scale Development', instructor: 'Yesim Capa-Aydin'},
 ];
 
 export const softwareTools: string[] = [

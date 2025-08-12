@@ -1,7 +1,8 @@
 // src/components/Sections/Affiliations/index.tsx
-import { FC, memo } from 'react';
+import {FC, memo} from 'react';
+
+import {SectionId} from '../../../data/data';
 import Section from '../../Layout/Section';
-import { SectionId } from '../../../data/data';
 
 interface Affiliation {
   years: string;
@@ -42,13 +43,13 @@ const Affiliations: FC = memo(() => {
 
         <ul className="space-y-4">
           {affiliations.map((aff, idx) => (
-            <li key={idx} className="border-b border-neutral-600 pb-3">
+            <li className="border-b border-neutral-600 pb-3" key={idx}>
               <div className="text-sm text-neutral-400">{aff.years}</div>
               <div className="font-semibold text-white">{aff.organization}</div>
               {aff.details && (
                 <ul className="ml-4 mt-1 list-disc text-neutral-300">
                   {aff.details.map((d, i) => (
-                    <li key={i} className="text-sm">{d}</li>
+                    <li className="text-sm" key={i}>{d}</li>
                   ))}
                 </ul>
               )}

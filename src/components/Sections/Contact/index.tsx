@@ -1,18 +1,27 @@
-import {DevicePhoneMobileIcon, EnvelopeIcon, MapPinIcon} from '@heroicons/react/24/outline';
+import {DevicePhoneMobileIcon, EnvelopeIcon, LinkIcon,MapPinIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import {FC, memo} from 'react';
+
 import {contact, SectionId} from '../../../data/data';
 import {ContactType, ContactValue} from '../../../data/dataDef';
 import LinkedInIcon from '../../Icon/LinkedInIcon';
+import XIcon from '../../Icon/XIcon';
 import Section from '../../Layout/Section';
 import ContactForm from './ContactForm';
 
 const ContactValueMap: Record<ContactType, ContactValue> = {
-  [ContactType.Email]: {Icon: EnvelopeIcon, srLabel: 'Email'},
-  [ContactType.Phone]: {Icon: DevicePhoneMobileIcon, srLabel: 'Phone'},
-  [ContactType.Location]: {Icon: MapPinIcon, srLabel: 'Location'},
-  [ContactType.LinkedIn]: {Icon: LinkedInIcon, srLabel: 'LinkedIn'},
+  [ContactType.Email]:    {Icon: EnvelopeIcon,        srLabel: 'Email'},
+  [ContactType.Phone]:    {Icon: DevicePhoneMobileIcon, srLabel: 'Phone'},
+  [ContactType.Location]: {Icon: MapPinIcon,          srLabel: 'Location'},
+  [ContactType.LinkedIn]: {Icon: LinkedInIcon,        srLabel: 'LinkedIn'},
+
+  // Aşağıdakiler eksikti — eklendi:
+  [ContactType.Github]:     {Icon: LinkIcon, srLabel: 'GitHub'},
+  [ContactType.Facebook]:   {Icon: LinkIcon, srLabel: 'Facebook'},
+  [ContactType.Twitter]:    {Icon: XIcon,    srLabel: 'Twitter'},   // İsterseniz LinkIcon da kullanabilirsiniz
+  [ContactType.Instagram]:  {Icon: LinkIcon, srLabel: 'Instagram'},
 };
+
 
 const Contact: FC = memo(() => {
   const {headerText, description, items} = contact;

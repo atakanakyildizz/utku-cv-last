@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import type {StaticImageData} from 'next/image';
 import {FC, memo, UIEventHandler, useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
 import {isApple, isMobile} from '../../config';
@@ -22,7 +23,9 @@ const Testimonials: FC = memo(() => {
 
   const resolveSrc = useMemo(() => {
     if (!imageSrc) return undefined;
-    return typeof imageSrc === 'string' ? imageSrc : (imageSrc as any).src;
+    return typeof imageSrc === 'string'
+      ? imageSrc
+      : (imageSrc as StaticImageData).src; // <-- any yerine StaticImageData
   }, [imageSrc]);
 
   useEffect(() => {
@@ -93,11 +96,11 @@ const Testimonials: FC = memo(() => {
                 const isActive = index === activeIndex;
                 return (
                   <button
+                    aria-label={`Show testimonial ${index + 1}`}
                     className={classNames(
                       'h-3 w-3 rounded-full bg-gray-300 transition-all duration-500 sm:h-4 sm:w-4',
                       isActive ? 'scale-100 opacity-100' : 'scale-75 opacity-60',
                     )}
-                    aria-label={`Show testimonial ${index + 1}`}
                     disabled={isActive}
                     key={`select-button-${index}`}
                     onClick={setTestimonial(index)}
@@ -125,9 +128,9 @@ const TestimonialItem: FC<{testimonial: Testimonial; isActive: boolean}> = memo(
         {title && <div className="text-sm text-white/80">{title}</div>}
         <div className="text-sm text-white/80">{location}</div>
         <a
+          aria-label={`Email ${name}`}
           className="text-sm underline break-all text-white"
-          href={`mailto:${contact}`}
-          aria-label={`Email ${name}`}>
+          href={`mailto:${contact}`}>
           {contact}
         </a>
       </div>

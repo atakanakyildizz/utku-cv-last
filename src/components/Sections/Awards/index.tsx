@@ -1,7 +1,8 @@
-import { FC, memo, useMemo } from 'react';
+import {FC, memo, useMemo} from 'react';
+
+import {type Award, fellowshipsGrants, honorsAwards} from '../../../data/awards';
+import {SectionId} from '../../../data/data';
 import Section from '../../Layout/Section';
-import { SectionId } from '../../../data/data';
-import { honorsAwards, fellowshipsGrants, type Award } from '../../../data/awards';
 
 const groupByYearDesc = (items: Award[]) => {
   // Yıl string ise (ör. 2019–2020) en alta gelsin
@@ -15,7 +16,7 @@ const groupByYearDesc = (items: Award[]) => {
     }, {});
 };
 
-const Row: FC<{ a: Award }> = ({ a }) => (
+const Row: FC<{a: Award}> = memo(({a}) => (
   <li className="leading-relaxed">
     <div className="text-sm text-neutral-600">{a.year}</div>
     <div className="font-semibold text-neutral-900">
@@ -27,43 +28,42 @@ const Row: FC<{ a: Award }> = ({ a }) => (
       {a.note ? ` — ${a.note}` : ''}
     </div>
   </li>
-);
+));
+Row.displayName = 'AwardRow';
 
-const Block: FC<{ id: string; title: string; subtitle: string; items: Award[] }> = ({
-  id,
-  title,
-  subtitle,
-  items,
-}) => {
-  const grouped = useMemo(() => groupByYearDesc(items), [items]);
-  const total = items.length;
+const Block: FC<{id: string; title: string; subtitle: string; items: Award[]}> = memo(
+  ({id, title, subtitle, items}) => {
+    const grouped = useMemo(() => groupByYearDesc(items), [items]);
+    const total = items.length;
 
-  return (
-    <section id={id} className="space-y-4">
-      <div className="flex items-end justify-between gap-4">
-        <div>
-          <h3 className="text-xl font-semibold text-neutral-900">{title}</h3>
-          <p className="text-neutral-700">{subtitle}</p>
-          <p className="text-xs text-neutral-500">Total: {total}</p>
-        </div>
-        <div className="flex gap-2"></div>
-      </div>
-
-      <div className="space-y-6">
-        {Object.entries(grouped).map(([year, list]) => (
-          <div key={year} className="space-y-2">
-            <h4 className="text-sm font-semibold text-neutral-800">{year}</h4>
-            <ul className="space-y-3">
-              {list.map((a, i) => (
-                <Row key={`${year}-${i}`} a={a} />
-              ))}
-            </ul>
+    return (
+      <section className="space-y-4" id={id}>
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h3 className="text-xl font-semibold text-neutral-900">{title}</h3>
+            <p className="text-neutral-700">{subtitle}</p>
+            <p className="text-xs text-neutral-500">Total: {total}</p>
           </div>
-        ))}
-      </div>
-    </section>
-  );
-};
+          <div className="flex gap-2" />
+        </div>
+
+        <div className="space-y-6">
+          {Object.entries(grouped).map(([year, list]) => (
+            <div className="space-y-2" key={year}>
+              <h4 className="text-sm font-semibold text-neutral-800">{year}</h4>
+              <ul className="space-y-3">
+                {list.map((a, i) => (
+                  <Row a={a} key={`${year}-${i}`} />
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  },
+);
+Block.displayName = 'AwardsBlock';
 
 const Awards: FC = memo(() => {
   return (
@@ -75,16 +75,16 @@ const Awards: FC = memo(() => {
 
         <Block
           id="fellowships"
-          title="Fellowships & Grants"
-          subtitle="Competitive funding and graduate fellowships."
           items={fellowshipsGrants}
+          subtitle="Competitive funding and graduate fellowships."
+          title="Fellowships & Grants"
         />
 
         <Block
           id="honors"
-          title="Honors & Awards"
-          subtitle="Recognitions, scholarships, and conference distinctions."
           items={honorsAwards}
+          subtitle="Recognitions, scholarships, and conference distinctions."
+          title="Honors & Awards"
         />
       </article>
     </Section>
