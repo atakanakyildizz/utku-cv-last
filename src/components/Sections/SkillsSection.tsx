@@ -8,20 +8,11 @@ const SkillsSection: FC = memo(() => {
     <div className="flex flex-col">
       {/* Kurslar */}
       {skillCourses.map((course, idx) => (
-        <div
-          className="flex flex-col pb-8 text-center last:pb-0 md:text-left"
-          key={idx}
-        >
+        <div className="flex flex-col pb-8 text-center last:pb-0 md:text-left" key={idx}>
           <div className="flex flex-col pb-4">
             <h2 className="text-xl font-bold">{course.title}</h2>
-            {course.instructor && (
-              <span className="text-sm font-medium italic">
-                Instructor: {course.instructor}
-              </span>
-            )}
-            {course.term && (
-              <span className="text-xs">{course.term}</span>
-            )}
+            {course.instructor && <span className="text-sm font-medium italic">Instructor: {course.instructor}</span>}
+            {course.term && <span className="text-xs">{course.term}</span>}
           </div>
         </div>
       ))}

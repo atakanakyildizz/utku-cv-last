@@ -19,17 +19,14 @@ const PubItem: FC<{p: Pub}> = memo(({p}) => (
     {p.locationDates && <div className="text-sm text-neutral-400">{p.locationDates}</div>}
     <div className="mt-1 flex flex-wrap items-center gap-2">
       {p.note && (
-        <span className="rounded-full border border-neutral-500 px-2 py-0.5 text-xs text-neutral-300">
-          {p.note}
-        </span>
+        <span className="rounded-full border border-neutral-500 px-2 py-0.5 text-xs text-neutral-300">{p.note}</span>
       )}
       {p.link && (
         <a
           className="text-xs font-medium text-blue-400 underline-offset-4 hover:underline"
           href={p.link}
           rel="noopener noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           DOI/Link
         </a>
       )}

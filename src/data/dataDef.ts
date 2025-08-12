@@ -80,7 +80,6 @@ export interface SkillResumeItem {
   skills: Skill[]; // mevcut Skill tipinizi yeniden kullanıyoruz
 }
 
-
 /**
  * Portfolio section
  */
@@ -111,12 +110,11 @@ export interface TestimonialSection {
 
 export interface Testimonial {
   name: string;
-  text?: string;  
+  text?: string;
   title?: string;
   location?: string;
   contact?: string;
 }
-
 
 /**
  * Contact section

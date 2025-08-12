@@ -14,10 +14,7 @@ const affiliations: Affiliation[] = [
   {
     years: '2022–present',
     organization: 'American Educational Research Association (AERA)',
-    details: [
-      'Division C: Learning and Instruction',
-      'Special Interest Group: Motivation in Education',
-    ],
+    details: ['Division C: Learning and Instruction', 'Special Interest Group: Motivation in Education'],
   },
   {
     years: '2021–present',
@@ -49,7 +46,9 @@ const Affiliations: FC = memo(() => {
               {aff.details && (
                 <ul className="ml-4 mt-1 list-disc text-neutral-300">
                   {aff.details.map((d, i) => (
-                    <li className="text-sm" key={i}>{d}</li>
+                    <li className="text-sm" key={i}>
+                      {d}
+                    </li>
                   ))}
                 </ul>
               )}

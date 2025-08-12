@@ -23,9 +23,7 @@ const Testimonials: FC = memo(() => {
 
   const resolveSrc = useMemo(() => {
     if (!imageSrc) return undefined;
-    return typeof imageSrc === 'string'
-      ? imageSrc
-      : (imageSrc as StaticImageData).src; // <-- any yerine StaticImageData
+    return typeof imageSrc === 'string' ? imageSrc : (imageSrc as StaticImageData).src; // <-- any yerine StaticImageData
   }, [imageSrc]);
 
   useEffect(() => {
@@ -86,9 +84,7 @@ const Testimonials: FC = memo(() => {
               role="list">
               {testimonials.map((t, index) => {
                 const isActive = index === activeIndex;
-                return (
-                  <TestimonialItem isActive={isActive} key={`${t.name}-${index}`} testimonial={t} />
-                );
+                return <TestimonialItem isActive={isActive} key={`${t.name}-${index}`} testimonial={t} />;
               })}
             </div>
             <div className="flex gap-x-4">
@@ -127,10 +123,7 @@ const TestimonialItem: FC<{testimonial: Testimonial; isActive: boolean}> = memo(
         <div className="text-base font-semibold text-white sm:text-lg">{name}</div>
         {title && <div className="text-sm text-white/80">{title}</div>}
         <div className="text-sm text-white/80">{location}</div>
-        <a
-          aria-label={`Email ${name}`}
-          className="text-sm underline break-all text-white"
-          href={`mailto:${contact}`}>
+        <a aria-label={`Email ${name}`} className="text-sm underline break-all text-white" href={`mailto:${contact}`}>
           {contact}
         </a>
       </div>

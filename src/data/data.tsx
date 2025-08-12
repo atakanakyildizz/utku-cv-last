@@ -1,4 +1,11 @@
-import {ArrowDownTrayIcon, BuildingOffice2Icon, CalendarIcon, FlagIcon, MapIcon, SparklesIcon} from '@heroicons/react/24/outline';
+import {
+  ArrowDownTrayIcon,
+  BuildingOffice2Icon,
+  CalendarIcon,
+  FlagIcon,
+  MapIcon,
+  SparklesIcon,
+} from '@heroicons/react/24/outline';
 
 import GoogleScholarIcon from '../components/Icon/GoogleScholarIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
@@ -6,9 +13,16 @@ import XIcon from '../components/Icon/XIcon';
 import heroImage from '../images/header-background.webp';
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
-
-import {About, ContactSection, ContactType, Hero, HomepageMeta, Social, TestimonialSection, TimelineItem} from './dataDef';
-
+import {
+  About,
+  ContactSection,
+  ContactType,
+  Hero,
+  HomepageMeta,
+  Social,
+  TestimonialSection,
+  TimelineItem,
+} from './dataDef';
 
 /**
  * Page meta data
@@ -29,7 +43,7 @@ export const SectionId = {
   Resume: 'resume',
   Skills: 'skills',
   Awards: 'awards',
-  Affiliations: 'affiliations', 
+  Affiliations: 'affiliations',
   Stats: 'stats',
   Testimonials: 'testimonials',
 } as const;
@@ -45,17 +59,19 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm Utku, broadly interested in  <strong className="text-stone-100">how social and contextual factors influence 
-        students’ motivation</strong>, 
+        I'm Utku, broadly interested in{' '}
+        <strong className="text-stone-100">how social and contextual factors influence students’ motivation</strong>,
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        Specifically, I work to understand <strong className="text-stone-100">how different levels 
-      of peer relations, such as peer interactions, friendships, and peer groups, play 
-      a role in students’ motivation.</strong>
+        Specifically, I work to understand{' '}
+        <strong className="text-stone-100">
+          how different levels of peer relations, such as peer interactions, friendships, and peer groups, play a role
+          in students’ motivation.
+        </strong>
       </p>
     </>
   ),
-  
+
   actions: [
     {
       href: '/resume.pdf',
@@ -91,8 +107,8 @@ export const aboutData: About = {
  * Skills section
  */
 export type SkillCourse = {
-  term: string;        // "Summer 2025" gibi
-  title: string;       // ders adı
+  term: string; // "Summer 2025" gibi
+  title: string; // ders adı
   instructor?: string; // "Instructor: ..." (opsiyonel)
 };
 
@@ -100,17 +116,13 @@ export const skillCourses: SkillCourse[] = [
   {term: 'Summer 2025', title: 'Longitudinal Structural Equation Modeling', instructor: 'Amy Nuttall'},
   {term: 'Summer 2024', title: 'Network Analysis: Introduction', instructor: 'Sarah Shugars'},
   {term: 'Spring 2024', title: 'Mixture Modeling and Latent Class Analysis', instructor: 'Dan Bauer & Doug Steinley'},
-  {term: 'Fall 2023',   title: 'Causal Inference', instructor: 'Doug Steinley'},
+  {term: 'Fall 2023', title: 'Causal Inference', instructor: 'Doug Steinley'},
   {term: 'Spring 2023', title: 'Hierarchical Linear Modeling', instructor: 'Kimberly Kelly'},
-  {term: 'Fall 2022',   title: 'Structural Equation Modeling', instructor: 'Amy Nuttall'},
+  {term: 'Fall 2022', title: 'Structural Equation Modeling', instructor: 'Amy Nuttall'},
   {term: 'Spring 2020', title: 'Scale Development', instructor: 'Yesim Capa-Aydin'},
 ];
 
-export const softwareTools: string[] = [
-  'IBM SPSS Statistics', 'RStudio', 'Mplus', 'MAXQDA (Qualitative Analysis)',
-];
-
-
+export const softwareTools: string[] = ['IBM SPSS Statistics', 'RStudio', 'Mplus', 'MAXQDA (Qualitative Analysis)'];
 
 /**
  * Resume section -- TODO: Standardize resume contact format or offer MDX
@@ -132,11 +144,14 @@ export const education: TimelineItem[] = [
     date: '2018-2021',
     location: 'Middle East Technical University',
     title: 'M.S., Curriculum & Instruction',
-    content: <p>
-    Thesis: Academic Motivation of Middle School Students: Perceived Teacher Affective Support, Number of Interaction Partners, Prior Achievement and Homophily.
-    <br />
-    Advisor: Dr. Nur Aksus-Cakir · Co-Advisor: Dr. Yesim Capa-Aydin
-  </p>
+    content: (
+      <p>
+        Thesis: Academic Motivation of Middle School Students: Perceived Teacher Affective Support, Number of
+        Interaction Partners, Prior Achievement and Homophily.
+        <br />
+        Advisor: Dr. Nur Aksus-Cakir · Co-Advisor: Dr. Yesim Capa-Aydin
+      </p>
+    ),
   },
   {
     date: '2015-2018',
@@ -158,8 +173,10 @@ export const experience: TimelineItem[] = [
     title: 'Course Instructor',
     content: (
       <p>
-        TE 150: Reflections on Learning (undergraduate educational psychology).<br />
-        Taught in-person, hybrid, and asynchronous online across Fall/Spring terms.<br />
+        TE 150: Reflections on Learning (undergraduate educational psychology).
+        <br />
+        Taught in-person, hybrid, and asynchronous online across Fall/Spring terms.
+        <br />
         Instructed 180+ undergraduate students to date.
       </p>
     ),
@@ -170,7 +187,8 @@ export const experience: TimelineItem[] = [
     title: 'Instructional Designer',
     content: (
       <p>
-        Designed course materials and learning activities aligned with school outcomes.<br />
+        Designed course materials and learning activities aligned with school outcomes.
+        <br />
         Delivered professional development seminars for teachers.
       </p>
     ),
@@ -179,11 +197,7 @@ export const experience: TimelineItem[] = [
     date: 'Feb 2018 – Jun 2018',
     location: 'Besiktas Guidance and Research Center',
     title: 'Psychological Assessment Intern',
-    content: (
-      <p>
-        Supported administration and scoring of standardized psychological tests.
-      </p>
-    ),
+    content: <p>Supported administration and scoring of standardized psychological tests.</p>,
   },
   {
     date: 'Oct 2017 – Jan 2018',
@@ -191,7 +205,8 @@ export const experience: TimelineItem[] = [
     title: 'School Counseling Intern',
     content: (
       <p>
-        Organized school orientation for incoming students.<br />
+        Organized school orientation for incoming students.
+        <br />
         Implemented a bullying prevention program.
       </p>
     ),
@@ -200,11 +215,7 @@ export const experience: TimelineItem[] = [
     date: 'Jan 2017 – May 2017',
     location: 'Sancaktar Hayrettin Middle School',
     title: 'School Counseling Intern',
-    content: (
-      <p>
-        Implemented career guidance activities for middle school students.
-      </p>
-    ),
+    content: <p>Implemented career guidance activities for middle school students.</p>,
   },
 ];
 
@@ -235,8 +246,6 @@ export const testimonial: TestimonialSection = {
   ],
 };
 
-
-
 /**
  * Contact section
  */
@@ -263,7 +272,7 @@ export const contact: ContactSection = {
     {
       type: ContactType.Phone,
       text: '+1 713 550 3289',
-      href: '+17135503289'
+      href: '+17135503289',
     },
   ],
 };
@@ -274,6 +283,9 @@ export const contact: ContactSection = {
 export const socialLinks: Social[] = [
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/timbakerx/'},
   {label: 'X', Icon: XIcon, href: 'https://x.com/utku_caybas'},
-  {label: 'Google Scholar', Icon: GoogleScholarIcon, href: 'https://scholar.google.com/citations?user=ViJXcW4AAAAJ&hl=en'},
+  {
+    label: 'Google Scholar',
+    Icon: GoogleScholarIcon,
+    href: 'https://scholar.google.com/citations?user=ViJXcW4AAAAJ&hl=en',
+  },
 ];
- 

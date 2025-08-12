@@ -18,8 +18,7 @@ const Icon: FC<IconProps> = memo(
     >
       {children}
     </svg>
-  )
+  ),
 );
 
 export default Icon;
-
