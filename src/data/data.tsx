@@ -1,11 +1,4 @@
-import {
-  ArrowDownTrayIcon,
-  BuildingOffice2Icon,
-  CalendarIcon,
-  FlagIcon,
-  MapIcon,
-  SparklesIcon,
-} from '@heroicons/react/24/outline';
+import {ArrowDownTrayIcon, BuildingOffice2Icon, CalendarIcon, FlagIcon, MapIcon, SparklesIcon} from '@heroicons/react/24/outline';
 
 import GoogleScholarIcon from '../components/Icon/GoogleScholarIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
@@ -13,23 +6,16 @@ import XIcon from '../components/Icon/XIcon';
 import heroImage from '../images/header-background.webp';
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
-import {
-  About,
-  ContactSection,
-  ContactType,
-  Hero,
-  HomepageMeta,
-  Social,
-  TestimonialSection,
-  TimelineItem,
-} from './dataDef';
+
+import {About, ContactSection, ContactType, Hero, HomepageMeta, Social, TestimonialSection, TimelineItem} from './dataDef';
+
 
 /**
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'React Resume Template',
-  description: "Example site built with Tim Baker's react resume template",
+  title: 'React Resume ',
+  description: "Atakans's site built with Utku Caybas's react resume",
 };
 
 /**
@@ -69,9 +55,10 @@ export const heroData: Hero = {
       </p>
     </>
   ),
+  
   actions: [
     {
-      href: 'assets/resume.pdf',
+      href: '/resume.pdf',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
@@ -289,3 +276,4 @@ export const socialLinks: Social[] = [
   {label: 'X', Icon: XIcon, href: 'https://x.com/utku_caybas'},
   {label: 'Google Scholar', Icon: GoogleScholarIcon, href: 'https://scholar.google.com/citations?user=ViJXcW4AAAAJ&hl=en'},
 ];
+ 
